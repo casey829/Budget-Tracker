@@ -6,7 +6,7 @@ import sqlite3
 class Category:
     def __init__(self, name):
         self.name = name
-        self.id = None  # Primary key will be automatically assigned
+        self.id = None 
 
     def save(self):
         conn = sqlite3.connect('database.db')
@@ -40,7 +40,7 @@ class Transaction:
         self.description = description
         self.amount = amount
         self.category_id = category_id
-        self.id = None  # Primary key will be automatically assigned
+        self.id = None  
 
     def save(self):
         conn = sqlite3.connect('database.db')

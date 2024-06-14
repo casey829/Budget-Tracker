@@ -25,7 +25,7 @@ def add_expense():
     description = input("Enter expense description: ")
     amount = float(input("Enter expense amount: "))
     category_id = select_category()
-    transaction = Transaction(description, -amount, category_id)  # Expense amount is negative
+    transaction = Transaction(description, -amount, category_id)  # When expense amount is negative
     transaction.save()
     print(f"Expense transaction '{description}' added successfully.")
 
@@ -50,7 +50,7 @@ def view_balance():
 def select_category():
     categories = Category.get_all()
     if not categories:
-        print("No categories found. Please add a category first.")
+        print("No categories found. Please add a category.")
         add_category()
         return select_category()
     else:
@@ -64,7 +64,6 @@ def select_category():
         return category_id
 
 def main():
-    # Initialize database tables if they don't exist
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
     c.execute('''
@@ -85,7 +84,7 @@ def main():
     conn.commit()
     conn.close()
 
-    # Main loop for CLI
+    #  loop for thee CLI
     while True:
         print("\nBudget Tracker Menu")
         print("1. Add Category")
